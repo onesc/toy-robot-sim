@@ -36,8 +36,7 @@ var robot = (function() {
       if (placed) rotate(1);
     },
     report: function(){
-    if (placed) {
-        console.log({x: pos.x, y: pos.y, dir: activeDirection});
+      if (placed) {
         return {x: pos.x, y: pos.y, dir: activeDirection};
       }
     }

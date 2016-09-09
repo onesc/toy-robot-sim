@@ -1,6 +1,6 @@
 var chai = require('chai');
 var expect = require('chai').expect;
-var robot = require('../robot.js');
+var robot = require('../scripts/robot.js');
 
 describe('Robot Placement', function(){
     it('do nothing if not yet placed', function(){

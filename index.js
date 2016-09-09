@@ -1,8 +1,8 @@
 var fs = require('fs');
-var robot = require('./robot.js');
-var interpreter = require('./robotinterpreter');
 var commands = fs.readFileSync('robotcommands.txt').toString().split("\n");
-var fs = require('fs');
+var robot = require('./scripts/robot.js');
+var interpreter = require('./scripts/robotinterpreter');
+
 commands.forEach(function(c){
   interpreter(robot, c);
 });
