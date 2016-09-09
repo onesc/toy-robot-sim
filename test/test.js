@@ -3,12 +3,37 @@ var expect = require('chai').expect;
 var robot = require('../robot.js');
 
 describe('Robot Placement', function(){
-  it('do nothing if not yet placed', function(){
-    robot.move();
-    robot.left();
-    robot.right();
-    expect(robot.report()).to.be.an('undefined');
-  });
+    it('do nothing if not yet placed', function(){
+      robot.move();
+      robot.left();
+      robot.right();
+      expect(robot.report()).to.be.an('undefined');
+    });
+
+    it('cant be placed below x boundary', function(){
+      robot.place(-1,0,"n");
+      expect(robot.report()).to.be.an('undefined');
+    });
+
+    it('cant be placed above x boundary', function(){
+      robot.place(6,0,"n");
+      expect(robot.report()).to.be.an('undefined');
+    });
+
+    it('cant be placed below y boundary', function(){
+      robot.place(0,-1,"n");
+      expect(robot.report()).to.be.an('undefined');
+    });
+
+    it('cant be placed above y boundary', function(){
+      robot.place(0,6,"n");
+      expect(robot.report()).to.be.an('undefined');
+    });
+
+    it('cant be placed with invalid direction', function(){
+      robot.place(0,0,"z");
+      expect(robot.report()).to.be.an('undefined');
+    });
 
     it('report its position if placed', function(){
       robot.place(3,3,"n");
@@ -86,7 +111,7 @@ describe ('Robot Movement', function (){
     robot.place(0,0,"w");
     var reportx = robot.report().x;
     robot.move();
-    expect(robot.report().x).to.equal(reportx).and.to.not.equal(reportx - 1);
+    expect(robot.report().x).to.equal(reportx).and.to.not.equal(reportx -  1);
   });
 
 });

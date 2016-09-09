@@ -1,32 +1,8 @@
-
 var robot = require('./robot.js');
+var interpreter = require('./robotinterpreter');
 
-// console.log(robot.move());
-// console.log(robot.left());
-robot.place(3,3,"n");
-robot.move();
-robot.move();
-
-robot.right();
-robot.move();
-robot.move();
-robot.move();
-robot.move();
-robot.move();
-robot.move();
-robot.right();
-robot.move();
-robot.move();
-robot.move();robot.move();
-robot.move();
-robot.move();
-robot.right();
-robot.move();
-robot.move();
-robot.move();robot.move();
-robot.move();
-robot.move();
-robot.move();
-robot.move();
-robot.move();
-console.log(robot.report());
+interpreter(robot, "PLACE 1,4,N");
+interpreter(robot, "MOVE");
+interpreter(robot, "LEFT");
+interpreter(robot, "MOVE");
+interpreter(robot, "REPORT");
