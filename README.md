@@ -64,7 +64,7 @@ npm test
 To test the application
 
 
-        ,     ,
+             
        (\____/)   Hello World
         (_oo_)  /
           (O)  /
@@ -72,4 +72,6 @@ To test the application
      []/______\[] /
      / \______/ \/
     /    /__\
-   (\   /____\
+  
+
+Nik Malev
