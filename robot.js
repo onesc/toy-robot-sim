@@ -30,10 +30,10 @@ var robot = (function() {
       }
     },
     left: function(){
-      rotate(-1);
+      if (placed) rotate(-1);
     },
     right: function(){
-      rotate(1);
+      if (placed) rotate(1);
     },
     report: function(){
     if (placed) {
