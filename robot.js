@@ -13,7 +13,7 @@ var robot = (function() {
 
   return {
     place: function(x, y, dir){
-      if((x < 5 && x > 0) && (y <= 5 && y >= 0) && (dir === "n" || "s" || "e" || "w")){
+      if((x <= 5 && x >= 0) && (y <= 5 && y >= 0) && (dir === "n" || "s" || "e" || "w")){
         pos.x = x;
         pos.y = y;
         activeDirection = directions[directions.indexOf(dir)];
