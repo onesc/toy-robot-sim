@@ -1,8 +1,10 @@
 var chai = require('chai');
 var expect = require('chai').expect;
+var interp = require('../scripts/robotinterpreter');
 var robot = require('../scripts/robot.js');
 
 describe('Robot Placement', function(){
+
     it('do nothing if not yet placed', function(){
       robot.move();
       robot.left();
@@ -113,10 +115,7 @@ describe ('Robot Movement', function (){
     robot.move();
     expect(robot.report().x).to.equal(reportx).and.to.not.equal(reportx -  1);
   });
-
 });
-
-
 
 describe('Robot Rotation', function(){
   it('rotates left', function(){
@@ -140,6 +139,71 @@ describe('Robot Rotation', function(){
     robot.right();
     expect(robot.report().dir).to.equal("w");
     robot.right();
+    expect(robot.report().dir).to.equal("n");
+  });
+});
+
+describe('Interpreter Movement', function(){
+  it('moves north', function(){
+    interp(robot, "PLACE 3,3,N");
+    var report = robot.report();
+    interp(robot, "MOVE");
+    var newreport = robot.report();
+    expect(report.x).to.equal(newreport.x);
+    expect(report.y + 1).to.equal(newreport.y);
+  });
+
+  it('moves south', function(){
+    interp(robot, "PLACE 3,3,S");
+    var report = robot.report();
+    interp(robot, "MOVE");
+    var newreport = robot.report();
+    expect(report.x).to.equal(newreport.x);
+    expect(report.y - 1).to.equal(newreport.y);
+  });
+
+  it('moves east', function(){
+    interp(robot, "PLACE 3,3,E");
+    var report = robot.report();
+    interp(robot, "MOVE");
+    var newreport = robot.report();
+    expect(report.x + 1).to.equal(newreport.x);
+    expect(report.y).to.equal(newreport.y);
+  });
+
+  it('moves west', function(){
+    interp(robot, "PLACE 3,3,W");
+    var report = robot.report();
+    interp(robot, "MOVE");
+    var newreport = robot.report();
+    expect(report.x - 1).to.equal(newreport.x);
+    expect(report.y).to.equal(newreport.y);
+  });
+
+});
+
+describe('Interpreter Rotation', function(){
+  it('rotates left', function(){
+    interp(robot, "PLACE 3,3,N");
+    interp(robot, "LEFT");
+    expect(robot.report().dir).to.equal("w");
+    interp(robot, "LEFT");
+    expect(robot.report().dir).to.equal("s");
+    interp(robot, "LEFT");
+    expect(robot.report().dir).to.equal("e");
+    interp(robot, "LEFT");
+    expect(robot.report().dir).to.equal("n");
+  });
+
+  it('rotates right', function(){
+    interp(robot, "PLACE 3,3,N");
+    interp(robot, "RIGHT");
+    expect(robot.report().dir).to.equal("e");
+    interp(robot, "RIGHT");
+    expect(robot.report().dir).to.equal("s");
+    interp(robot, "RIGHT");
+    expect(robot.report().dir).to.equal("w");
+    interp(robot, "RIGHT");
     expect(robot.report().dir).to.equal("n");
   });
 });
