@@ -45,3 +45,31 @@ Rotates the robot to the left, e.g: If it were facing East, it would then be fac
 
 ### RIGHT
 Rotates the robot to the right, e.g: If it were facing East, it would then be facing North
+
+
+## Testing
+The tests for this application were written using the mocha testing framework and chai for assertions
+To install mocha run
+```
+npm install –g mocha
+```
+Run either
+```
+mocha
+```
+or
+```
+npm test
+```
+To test the application
+
+
+        ,     ,
+       (\____/)   Hello World
+        (_oo_)  /
+          (O)  /
+        __||__    \)
+     []/______\[] /
+     / \______/ \/
+    /    /__\
+   (\   /____\
